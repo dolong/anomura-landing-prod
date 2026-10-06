@@ -1,7 +1,9 @@
 import { getEquipment } from "@repositories/equipment";
 import { ethers } from "ethers"
 
-const collectionAddress = ethers.utils.getAddress(process.env.NEXT_PUBLIC_EQUIPMENT_ADDRESS)
+const collectionAddress = process.env.NEXT_PUBLIC_EQUIPMENT_ADDRESS
+    ? ethers.utils.getAddress(process.env.NEXT_PUBLIC_EQUIPMENT_ADDRESS)
+    : null
 const equipmentQueryHandler = async (req, res) => {
   const { method } = req;
 
