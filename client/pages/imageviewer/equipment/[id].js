@@ -25,28 +25,16 @@ import {
 
 
 import { PrismaClient, EquipmentRarity, EquipmentType } from '@prisma/client'
-const collectionAddress = ethers.utils.getAddress(process.env.NEXT_PUBLIC_EQUIPMENT_ADDRESS)
+const collectionAddress = process.env.NEXT_PUBLIC_EQUIPMENT_ADDRESS
+    ? ethers.utils.getAddress(process.env.NEXT_PUBLIC_EQUIPMENT_ADDRESS)
+    : null
 
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
-    const prisma = new PrismaClient()
-    let data = await prisma.equipment.findMany({
-        where: {
-            collectionAddress
-        },
-        take: 1
-    });
-    await prisma.$disconnect();
-
-    const paths = data.map((p) => {
-        return {
-            params: { id: p.equipmentId.toString() },
-        };
-    });
-
+    // Pages are generated on first request so the build does not need a database.
     return {
-        paths,
-        fallback: "blocking", // true
+        paths: [],
+        fallback: "blocking",
     };
 };
 
