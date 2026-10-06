@@ -29,21 +29,10 @@ import { PrismaClient } from '@prisma/client'
 
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
-    const prisma = new PrismaClient()
-    let data = await prisma.anomuras.findMany({
-        take: 500
-    });
-    await prisma.$disconnect();
-
-    const paths = data.map((p) => {
-        return {
-            params: { id: p.crabId.toString() },
-        };
-    });
-
+    // Pages are generated on first request so the build does not need a database.
     return {
-        paths,
-        fallback: "blocking", // true
+        paths: [],
+        fallback: "blocking",
     };
 };
 
