@@ -1,4 +1,3 @@
-const { DEEPSEACHALLENGER_HOST, MINT_BOWL_HOST } = process.env;
 
 const securityHeaders = []
 const ContentSecurityPolicy = ` 
@@ -83,38 +82,13 @@ module.exports = {
                 source: "/public/TERMSANDCONDITIONS.html",
                 destination: "/pages/api/static/home/termsAndConditions.js",
             },
-            // rewrite to Deep Sea Challenger
             {
                 source: "/:path*",
                 destination: `/:path*`,
             },
             {
-                source: "/challenger",
-                destination: `${DEEPSEACHALLENGER_HOST}/challenger`,
-            },
-            {
-                source: "/challenger/:path*",
-                destination: `${DEEPSEACHALLENGER_HOST}/challenger/:path*`,
-            },
-            {
-                source: "/challenger(.*)",
-                destination: `${DEEPSEACHALLENGER_HOST}/challenger$1`,
-            },
-            {
                 source: "/gallery",
                 destination: `/imageviewer`,
-            },
-            {
-                source: "/mint",
-                destination: `${MINT_BOWL_HOST}/mint`,
-            },
-            {
-                source: "/mint/:path*",
-                destination: `${MINT_BOWL_HOST}/mint/:path*`,
-            },
-            {
-                source: "/mint(.*)",
-                destination: `${MINT_BOWL_HOST}/mint$1`,
             },
         ];
     }, async redirects() {
