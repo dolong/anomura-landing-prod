@@ -1,0 +1,217 @@
+@use "../mixins" as m;
+
+
+$bp-small: 24em;            // 384
+$bp-small-2: 31.25em;       // 500
+$bp-small-3: 39.8em;        // 636
+$bp-med: 46.8em;            // 748
+$bp-med-2: 50em;            // 800
+$bp-large: 54.5em;          // 872
+$bp-large-2: 75em;          // 1200
+$bp-xl: 90em;               // 1440
+$bp-xl-2: 123.75em;         // 1980
+$bp-xl-3: 160em;            // 2560
+$bp-xl-4: 240em;            // 3840
+
+// .container{
+//     width:508px;
+//     height: 500px;
+//     position: relative;
+//     display:flex;
+//     flex-direction: column;
+// }
+
+.container {
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    background-image: url("/img/gallery/Gallery Background.png");
+	background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    @include m.flex-master(null, center, center);
+    height: 100%;
+    min-height: 100vh;
+}
+.wrapper{
+    width:50%;
+}
+
+.content{ 
+    
+    @include m.flex-master(column, center, center);
+    color: white;
+   
+    &_logo {
+        margin-top: 2rem;
+        width: 66%;
+        margin-bottom: 2rem;
+        cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0,pointer;
+    
+        @media (min-width: $bp-small-3) {  
+            max-width:33%;
+        }
+    }
+    &_title {
+        width:70%;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        margin-bottom: 1rem;
+        font-family: Safety Goggles;
+        text-align: center;
+
+        @media (min-width: $bp-small) {  
+            font-size: 1.75rem;
+        }
+        @media (min-width: $bp-small-2) {  
+            font-size: 2rem;
+        }
+        @media (min-width: $bp-small-3) {  
+            width:50%;
+            font-size: 2rem;
+        }
+        @media (min-width: $bp-xl) {  
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+    &_paragraph {
+        width:70%;
+        @include m.flex-master(column, null, center);
+        font-size: 0.65rem;
+        font-family: PFRondaSeven;
+        margin-bottom: 1rem;
+        // line-height: 33px;
+
+        text-align: center;
+        @media (min-width: $bp-small-3) {  
+            font-size: 0.75rem;
+            width:50%;
+        }
+        @media (min-width: $bp-xl) {  
+            font-size: 1.25rem;
+        }
+    }
+    
+}
+.socials {
+    @include m.flex-master(column, center, center);
+    width:50%;
+    &_wrapper {
+        width: 90%;
+        @include m.flex-master(row, space-evenly, center);
+        
+        @media (min-width: $bp-small-3) {  
+            width: 33%;
+        }
+        @media (min-width: $bp-xl-3) {  
+            width: 27%;
+        }
+        // & > img {
+        //     width: 22%;
+        //     &:hover {
+        //         cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0,pointer;
+        //     }
+        // }
+
+        &_icon {
+            @include m.flex-master(row, null, center);
+            width: 22%; //63px
+            position: relative;
+
+            > img:nth-child(1){
+                margin-top: 4%;
+                margin-left: 3.5%;
+                width: 95%; //57px
+            }
+            > img:nth-child(2) {
+                position: absolute;
+                top:0;
+                display:none;
+                z-index: 1;
+                width: 100%;
+            }
+            
+            &:hover {
+                > img:nth-child(2) {
+                    display: block;
+                    // background-image: url("/img/imageviewer/Others/Icon Outline.png");
+                }
+            }
+            &:hover {
+                cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0,pointer;
+            }
+        }
+    }
+
+    margin: 1rem 0rem 2rem 0rem;
+}
+
+.grid {
+    width:50%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    @media (min-width: $bp-small-3) {  
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+    }
+    // @media (min-width: $bp-xl-3) {  
+    //     width: 37%;
+    // }
+
+    &_image {
+        border: solid 5px #A5EBE3;
+        border-radius: 10px;
+
+        &_loading {
+            @include m.flex-master(column, center, center);
+            height: auto;
+        }
+
+        @media (min-width: $bp-small-3) {  
+            border: solid 5px #A5EBE3;
+            border-radius: 10px;
+        }
+        @media (min-width: $bp-xl) {  
+            border: solid 8px #A5EBE3;
+            border-radius: 10px;
+        }
+        @media (min-width: $bp-xl-3) {  
+           width: 500px
+        }
+        @media (min-width: $bp-xl-4) {  
+            width: 600px
+        }
+    }
+}
+
+.arrows {
+    @include m.flex-master(column, center, center);
+    width:50%;
+    &_wrapper {
+        @include m.flex-master(row, space-between, center);
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        @media (min-width: $bp-small-3) {  
+            width: 33%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        @media (min-width: $bp-xl-3) {  
+            width: 25%;
+        }
+
+        & > img {
+            width: 15%;
+        }
+    }
+    margin: 2rem 0rem 2rem 0rem;
+    @media (min-width: $bp-xl-3) {  
+        margin: 4rem 0rem 4rem 0rem;
+    }
+}

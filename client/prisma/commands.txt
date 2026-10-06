@@ -1,0 +1,10 @@
+***** locally:  
+dotenv -e .env.development -- npx prisma migrate dev --name postgres-init
+
+
+***** locally to apply on production:
+dotenv -e .env.production -- npx prisma migrate deploy
+ 
+***** seed data:
+ dotenv -e .env.development -- node ./scripts/anomuras.js
+ dotenv -e .env.development -- node ./scripts/buildAnomuraImages.js

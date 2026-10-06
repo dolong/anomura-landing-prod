@@ -1,0 +1,92 @@
+/*Main Site colors*/
+/*Font colors*/
+/*Span bg colors */
+.bottom_zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: fixed;
+  width: 5%;
+  bottom: 0px;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 2s;
+  pointer-events: none;
+  height: 100%;
+}
+@media (min-width: 800px) {
+  .bottom_zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 8%;
+  }
+}
+@media (min-width: 1200px) {
+  .bottom_zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 5%;
+  }
+}
+.bottom_mobile {
+  pointer-events: auto;
+  align-self: flex-start;
+  width: 16%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 7px;
+  padding-bottom: 60px;
+}
+.bottom_mobile > a {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
+}
+@media (min-width: 384px) {
+  .bottom_mobile > a {
+    width: 40px;
+    height: 40px;
+  }
+}
+.bottom_desktop {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+.bottom_desktop_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+.bottom_desktop_wrapper_icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70%;
+  position: relative;
+}
+.bottom_desktop_wrapper_icon:hover {
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0, pointer;
+}
+.bottom_desktop_wrapper_icon > img:nth-child(1) {
+  margin-top: 4.5%;
+  margin-left: 4.75%;
+  width: 91%;
+}
+.bottom_desktop_wrapper_icon > img:nth-child(2) {
+  position: absolute;
+  top: 0;
+  display: none;
+  z-index: 1;
+  width: 100%;
+}
+.bottom_desktop_wrapper_icon:hover > img:nth-child(2) {
+  display: block;
+}/*# sourceMappingURL=index.module.css.map */

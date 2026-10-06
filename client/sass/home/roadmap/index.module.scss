@@ -1,0 +1,570 @@
+@use "../../mixins" as m;
+@use "../../colors" as c;
+
+$bp-small: 384px;            // 384   24em
+$bp-small-2: 500px;       // 500   31.25em
+$bp-small-3: 636px;        // 636   39.8em
+$bp-med: 748px;            // 748   46.8em
+$bp-med-2: 800px;            // 800   50em
+$bp-large: 872px;          // 872   54.5em
+$bp-large-2: 1200px;          // 1200  75em
+$bp-xl: 1440px;               // 1440  90em 
+$bp-xl-2: 1980px;         // 1980  123.75em
+$bp-xl-3: 2560px;            // 2560  160em
+$bp-xl-4: 3840px;            // 2560  160em
+
+$desktop-text-section: 50%;
+$desktop-text-size: 1.125rem;
+
+$medium-text-size: 1.3125rem;
+
+$mobile-text-section: 67%;
+$mobile-text-size: 0.875rem;
+
+$mobile-lineHeight: 1.5rem;
+$header-space-bottom: 60px;
+
+.app {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+.parallax_group {
+	position: relative;
+	height: 100%;
+}
+.roadmap {
+	&_wrapper {
+		background-color: #03114A;
+		@include m.flex-master(column, null, center);
+		padding-bottom: 10%;
+		z-index: 5;
+	}
+	&_container {
+		width: $mobile-text-section;
+		margin-top: 25%;
+
+		@media (min-width: $bp-small) {  
+			margin-top: 25%;
+		}
+		@media (min-width: $bp-small-2) {  
+			margin-top: 25%;
+		}
+		@media (min-width: $bp-small-3) {  
+			margin-top: 20%;
+		}
+		@media (min-width: $bp-med-2) {  
+			margin-top: 25%;
+			width: $desktop-text-section;
+		}
+		@media (min-width: $bp-large) { 
+			margin-top: 30%; 	
+		}
+		@media (min-width: $bp-large-2) {  
+			margin-top: 18%;
+		}
+		@media (min-width: $bp-xl) {  
+			margin-top: 12%;
+		}
+	}
+	&_text {
+		position: relative;
+		text-align: center;
+		line-height: $mobile-lineHeight;
+	}
+	&_heading {
+		@include m.heading();	
+		font-weight: 400;
+	}
+	&_paragraphContainer {
+		@include m.paragraphContainer();
+	}
+	&_divider {
+		/* The actual timeline (the vertical ruler) */
+		&_timeline {
+			display:block;
+			position: relative;
+			max-width: 1800px;
+			margin: 0 auto;
+
+			/* The actual timeline (the vertical ruler) */
+			&:after {
+				@media (min-width: $bp-med-2) {  
+					content: '';
+					position: absolute;
+					width: 2px;
+					border-left: 2px dashed #1048D7;
+					top: 3rem;
+					bottom: 0;
+					left: 50%;
+					margin-left: -0.5px;
+					height: 92%;
+				}
+				@media (min-width: $bp-large) {  
+					top: 4rem;
+					height: 92.3%;
+				}
+				@media (min-width: $bp-large-2) {  
+					top: 5rem;
+					height: 92%;
+				}
+				@media (min-width: $bp-xl) {  
+					top: 5.5rem;
+					height: 92%;
+				}
+				@media (min-width: 1600px) {  
+					top: 8.6rem;
+					height: 91%;
+				}
+				@media (min-width: $bp-xl-2) {  
+					top: 9.5rem;
+					height: 90%;
+				}
+				@media (min-width: $bp-xl-3) {  
+					top: 11.35rem;
+					height: 90.5%;
+				}
+				@media (min-width: $bp-xl-4) {  
+					top: 11.35rem;
+					height: 90.5%;
+				}
+			 }
+ 		}
+	
+		&_wrapper {
+			width:100%;
+		}
+		&_container {
+			width:100%;
+		}
+		&_item {
+			@include m.flex-master(column, null, null);
+			margin-bottom: 4.5rem;
+
+			@media (min-width: $bp-small-2) {  
+				margin-bottom:4.5rem;
+			}
+			@media (min-width: $bp-small-3) {  
+				margin-bottom:4.5rem;
+			}
+			@media (min-width: $bp-xl) {  
+				margin-bottom: 2.5rem;
+			}
+			@media (min-width: $bp-xl-2) {  
+				margin-bottom: 2.5rem;
+			}
+			@media (min-width: $bp-xl-3) {  
+				margin-bottom: 3rem;
+			}
+			&_img {
+				position: relative;
+				width:100%;
+				@include m.flex-master(column, null, center);
+				
+			}
+			& > div:nth-child(1){
+				@media (min-width: $bp-large) {  
+					// margin-right:2rem;
+				}
+			}
+			& > div:nth-child(2){
+				@media (min-width: $bp-large) {  
+					//margin-left:2rem;
+				}
+			}
+			&_labels {
+				// @include m.flex-master(column, space-evenly, null);
+				@include m.flex-master(column, center, null);
+				width:100%;
+				gap:0.25rem;
+
+				@media (min-width: $bp-large-2) {  
+					gap:0.5rem;
+				}
+
+				@media (min-width: $bp-xl-2) {  
+					gap:0.75rem;
+				}
+				@media (min-width: $bp-xl-4) {  
+					gap:1.75rem;
+				}
+
+				&_progress {
+					font-size: 0.6rem;
+					letter-spacing: 3px;
+					width: fit-content;
+					padding: 4px 8px 4px 10px;
+					color: #95DDC0;
+					background-color: #06495C;
+					font-family: PFRondaSeven;
+
+					@media (min-width: $bp-small-2) {  
+						// font-size: 1.75rem;
+					}	
+					@media (min-width: $bp-small-3) {  
+						// font-size: 1.75rem;
+					}	
+					@media (min-width: $bp-med) {  
+						font-size: 0.7rem;
+					}
+					@media (min-width: $bp-med-2) {  
+						font-size: 0.6rem;
+					}
+					@media (min-width: $bp-large) {  
+						font-size: 0.7rem;
+					}	
+					@media (min-width: $bp-xl) {  
+						font-size: 0.9rem;
+					}
+					@media (min-width: $bp-xl-3) {  
+						font-size: 1.25rem;
+						
+					}
+					@media (min-width: $bp-xl-4) {  
+						font-size: 1.5rem;
+					}
+				}
+				&_title {
+					position: relative;
+					font-size: 1.5rem;
+					color: white;
+					font-weight: 500;
+					font-family: Safety Goggles;
+					padding-right:0.5rem; 
+					line-height:2rem;
+
+					@media (min-width: $bp-med) {  
+						font-size: 2rem;
+					}
+					@media (min-width: $bp-med-2) {  
+						font-size: 1.5rem;
+					}
+					@media (min-width: $bp-large) {  
+						font-size: 1.6rem;
+					}	
+					@media (min-width: $bp-large-2) {  
+						font-size: 1.7rem;
+					}
+					@media (min-width: $bp-xl) {  
+						font-size: 2.25rem;
+					}
+					@media (min-width: $bp-xl-2) {  
+						font-size: 2.25rem;
+					}
+					@media (min-width: $bp-xl-3) {  
+						font-size: 3.5rem;
+						line-height: 3.75rem;
+					}
+					@media (min-width: $bp-xl-4) {  
+						font-size: 4rem;
+					}
+				}
+				&_target {
+					@include m.paragraphContainer();
+					color: #FF5FB7;
+					text-align: left;
+					margin-bottom: 0px;
+				}
+				&_description {
+					@include m.paragraphContainer();
+					color: #487BFF;
+					text-align: left;
+					margin-bottom: 0px;
+				}
+			}
+		}
+
+		&_item:nth-child(odd) {
+			@media (min-width: $bp-med-2) {  
+				@include m.flex-master(row, null, null);
+			}
+
+			& > div:nth-child(2){
+				@media (min-width: $bp-med-2) {
+					margin-left:5rem;
+				
+					> span {
+						&:before {
+							position: absolute;
+							top: 2px;
+							width: 24px;
+							height: 24px;
+							transform: translate(-3.25rem, 0);
+							border-radius: 50%;
+							z-index: 1;
+							content: url('/img/home/whenSection/Roadmap Hexagon.svg');
+							
+						}
+					}
+				}
+				@media (min-width: $bp-large) {	
+					> span {
+						&:before {
+							width: 32px;
+							height: 32px;
+							transform: translate(-3.5rem, 0);			
+						}
+					}
+				}
+				@media (min-width: $bp-large-2) {	
+					> span {
+						&:before {
+							width: 37px;
+							height: 37px;
+							transform: translate(-3.65rem, 0);			
+						}
+					}
+				}
+				@media (min-width: $bp-xl-2) {	
+					> span {
+						&:before {
+							width: 37px;
+							height: 37px;
+							transform: translate(-3.65rem, 0);		
+						}
+					}
+				}
+				@media (min-width: $bp-xl-3) {	
+					> span {
+						&:before {
+							width: 45px;
+							height: 45px;
+							transform: translate(-3.9rem, 0);		
+						}
+					}
+				}
+			}
+		}
+		
+		&_item:nth-child(even) {
+			@media (min-width: $bp-med-2) {  
+				@include m.flex-master(row-reverse, null, null);
+			}
+
+			& > div:nth-child(2){
+				@media (min-width: $bp-med-2) {  
+					margin-right: 2rem;
+				
+					> span {
+						&:after {
+							position: absolute;
+							top: 2px;
+							width: 24px;
+							height: 24px;
+							right: 0;
+							transform: translate(1.75rem, 0);
+							border-radius: 50%;
+							z-index: 1;
+							content: url('/img/home/whenSection/Roadmap Hexagon.svg');
+						 }
+					}
+				}
+				@media (min-width: $bp-large) {	
+					> span {
+						&:after {
+							width: 32px;
+							height: 32px;
+							transform: translate(2rem, 0);		
+						}
+					}
+				}
+				@media (min-width: $bp-large-2) {	
+					> span {
+						&:after {
+							width: 37px;
+							height: 37px;
+							transform: translate(2.15rem, 0);		
+						}
+					}
+				}
+				@media (min-width: $bp-xl-2) {	
+					> span {
+						&:after {
+							width: 37px;
+							height: 37px;
+							transform: translate(2.15rem, 0);		
+						}
+					}
+				}
+				@media (min-width: $bp-xl-3) {	
+					> span {
+						&:after {
+							width: 45px;
+							height: 45px;
+							transform: translate(2.45rem, 0);		
+						}
+					}
+				}
+			}
+
+		}
+
+		&_purpleLeft {
+			color: #FF5FB7;
+			@media (min-width: $bp-med-2) {
+				&:before {
+					content: url('/img/home/whenSection/Roadmap Hexagon_pink.svg')!important;
+			 	}
+			}
+				
+		}
+		&_purpleRight {
+			color: #FF5FB7;
+			@media (min-width: $bp-med-2) {
+			 	&:after {
+					content: url('/img/home/whenSection/Roadmap Hexagon_pink.svg')!important;
+			 	}
+			}
+		}
+	}
+}
+
+.bottom {
+	&_zone {
+		@include m.flex-master(row, null, null);
+		position: fixed;
+		width: 100%;
+		bottom:0px;
+		z-index:10;
+		opacity: 1;
+		transition: opacity 2s;
+		pointer-events:none;
+	}
+	&_mobileIcons {
+		pointer-events: auto;
+		align-self: flex-start;
+		width: 16%;
+		display: flex;
+		flex-direction: column;
+		padding-left: 7px;
+		padding-bottom: 60px;
+		& > a {
+			width: 40px;
+			height: 40px;
+			margin-bottom: 10px;
+		}
+		@media (min-width: $bp-large) { 
+			display: none;
+		}
+		
+	}
+
+	&_icons{
+		align-self: flex-end;
+		width: auto;
+	}
+	&_leftSticker {
+		position: relative;
+		align-self: flex-end;
+		width: 20%;
+
+		&_icons {
+			position: absolute;
+			display: flex;
+			justify-content: space-between;
+			height: 200px;
+			left: 4%;
+			width: 79%;
+			pointer-events: auto;
+			a {
+				z-index: 2;
+			}
+			&_twitter{
+				width: 28%;
+    			margin-left: 1%;
+    			margin-top: 2%;
+				background: url("/img/home/bottomSand/twitter_inactive.png") no-repeat;
+				background-size: contain;
+			
+				&:hover{
+					background: url("/img/home/bottomSand/twitter.png") no-repeat;
+					background-size: contain;
+				}
+			}
+			&_discord{
+				width:29%;
+				margin-top: 7%;
+				background: url("/img/home/bottomSand/discord.png") no-repeat;
+				background-size: contain;
+				
+				&:hover{
+					background: url("/img/home/bottomSand/discord_hover.png") no-repeat;
+					background-size: contain;
+				}
+			}
+			
+			&_medium { 
+				width:29%;
+				margin-top: 9.8%;
+	
+				background: url("/img/home/bottomSand/medium.png") no-repeat;
+				background-size: contain;
+
+			 	&:hover{
+			 		background: url("/img/home/bottomSand/medium_hover.png") no-repeat;
+			 		background-size: contain;
+			 	}
+			}
+		}
+	}
+	&_right {
+		flex: 20%;
+		position: relative;
+		margin-left:auto;
+		align-self: flex-end;
+		&_container{
+			@include m.flex-master(column, null, null);
+			right:0;
+			bottom:0;
+			height: 100%;
+			width: min(18vw, 170px);
+			position: absolute;
+			pointer-events: auto;
+
+			&_discord {
+				display: flex;
+				align-items:center;
+        		justify-content:center;
+				width: auto;
+				margin-top: 9%;
+				height: 33%;
+				font-size: 1.75rem;
+				font-family: Safety Goggles;
+				color: #F0C297!important;
+				&:hover {
+					color: #FFCF8E!important;
+					text-decoration: none;
+				}
+			}
+			&_soundOff {
+				height: 33%;
+				display: flex;
+				align-items:center;
+        		justify-content:center;
+				color: #F0C297;
+				&:hover {
+					color:  #FFCF8E!important;
+					text-decoration: none;
+			
+				}
+				&_link{
+					width: 20%;
+					height: 40%;
+				}
+				&_icon{
+					height: 100%;
+					margin-right:5px;
+				}
+				&_text{
+					font-size: 1.25rem;
+					font-family: Safety Goggles;
+				}
+			}
+		}
+	}
+	&_image{
+		height:auto;
+		width: min(18vw, 170px);
+		margin-left:auto;
+	}
+}

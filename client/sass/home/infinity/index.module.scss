@@ -1,0 +1,204 @@
+@use "../../mixins" as m;
+@use "../../colors" as c;
+
+$bp-small: 384px;            // 384   24em
+$bp-small-2: 500px;       // 500   31.25em
+$bp-small-3: 636px;        // 636   39.8em
+$bp-med: 748px;            // 748   46.8em
+$bp-med-2: 800px;            // 800   50em
+$bp-large: 872px;          // 872   54.5em
+$bp-large-2: 1200px;          // 1200  75em
+$bp-xl: 1440px;               // 1440  90em 
+$bp-xl-2: 1980px;         // 1980  123.75em
+$bp-xl-3: 2560px;            // 2560  160em
+$bp-xl-4: 3840px;            // 2560  160em
+
+@mixin highlightText($bgColor, $fontColor: c.$primary-font-color) {
+	background-color: $bgColor;
+	color: $fontColor;
+	padding: 3px 10px 3px 10px;
+	min-width: 130px;
+	font-weight: 600;
+}
+
+$desktop-text-section: 50%;
+$desktop-text-size: 1.125rem;
+
+$medium-text-size: 1.3125rem;
+
+$mobile-text-section: 67%;
+$mobile-text-size: 0.875rem;
+
+$mobile-lineHeight: 1.5rem;
+$header-space-bottom: 60px;
+
+
+.app {
+	width: 100%;
+	position: relative;
+}
+.parallax_group {
+	position: relative;
+}
+
+.enterInifinity {
+	@include m.z-layers(3, "/img/home/backgrounds/Layer3.png", 65%);
+	@include m.flex-master(null, center, null);
+	shape-outside: url("/img/home/backgrounds/Layer3.png");
+	z-index: 3;
+
+	&_container {
+		width: $mobile-text-section;
+
+		@media (min-width: $bp-med-2) {  
+            @include m.flex-master(row, center, center);
+			width: $desktop-text-section;
+        }
+	}
+	&_text {
+		@include m.flex-master(column, null, center);
+		margin-top: 100%;
+		position: relative;
+
+		@media (min-width: $bp-med) {  
+            margin-top: 85%;
+        }
+		@media (min-width: $bp-large-2) {  
+            margin-top: 80%;
+        }
+	}
+	&_heading {
+		@include m.heading();	
+		text-shadow: 2px 5px rgba(0, 0, 0, 0.25);
+		color: #fff;
+
+	}
+
+	&_divider {
+        @include m.flex-master(column, null, center);
+        width: 100%;
+        height: 100%;
+        gap: 1rem;
+		@media (min-width: $bp-small) {  
+            gap: 1.5rem;
+        }
+    
+        @media (min-width: $bp-large-2) {  
+            @include m.flex-master(row, center, center);
+			gap: 2.25rem;
+        }
+
+        &_carousel {
+			@include m.flex-master(column, center, center);
+            width: 100%;
+            
+			@media (min-width: $bp-large-2) {  
+				@include m.flex-master(column, center, center);
+				width: 50%; 
+				margin-bottom: auto;
+			}
+            &_canvas {
+                flex: 3;
+				height: 100%;		
+				width: 100%;
+                border: 5px solid #38796D;
+				max-width: 450px;
+				
+				@media (min-width: $bp-large-2) {  
+					width: 80%; 
+				}
+				@media (min-width: $bp-xl) {  
+					width: 95%; 
+					max-width: none;
+					border: 9px solid #38796D;
+				}
+
+                & > img {
+                    width: 100%;
+					height: 100%;
+					
+                }
+            }
+            &_buttons {
+                @include m.flex-master(row, center, null);
+
+                width: 100%;
+				flex: 1;
+                margin-top: 1rem;
+                gap: 1rem;
+
+				@media (min-width: $bp-med) {  
+					margin-top: 2rem;
+				}
+				@media (min-width: $bp-large-2) {  
+					width: 80%; 
+				}
+                @media (min-width: $bp-xl-2) { 
+                    margin-top: 2rem; 
+                }
+               
+				&_left {
+					flex: 50%;
+					height: 100%;
+					&_wrapper {
+						@include m.flex-master(row, center, null);
+
+						> img {
+							@include m.cursor();
+							width: 20%;
+							@media (min-width: $bp-large-2) { 
+								width: 40%;
+							}
+
+							@media (min-width: $bp-xl) { 
+								width: 25%;
+							}
+						}
+					}
+				}
+				&_right {
+					flex: 50%;
+					
+					&_wrapper {
+						@include m.flex-master(row, center, null);
+
+						> img {
+							@include m.cursor();
+							width: 20%;
+							@media (min-width: $bp-large-2) { 
+								width: 40%;
+							}
+							@media (min-width: $bp-xl) { 
+								width: 25%;
+							}
+						}
+					}
+				}
+            }
+        }
+    
+        &_paragraph {
+			@include m.flex-master(column, flex-start, null);
+			width: 100%;
+			height: 100%;
+
+			@media (min-width: $bp-large-2) {   
+				width: 50%; 
+				margin-bottom: auto;
+			}
+
+			&_wrapper {
+				width: 100%;
+				height: 100%;
+
+				@include m.flex-master(column, null, null);
+	
+				@include m.paragraphContainer();
+				text-align: center;
+				@media (min-width: $bp-large-2) { 
+					text-align: left;
+				}
+			}
+        } 
+    }
+}

@@ -1,0 +1,103 @@
+@use "../../mixins" as m;
+@use "../../colors" as c;
+
+$bp-small: 384px; // 384   24em
+$bp-small-2: 500px; // 500   31.25em
+$bp-small-3: 636px; // 636   39.8em
+$bp-med: 748px; // 748   46.8em
+$bp-med-2: 800px; // 800   50em
+$bp-large: 872px; // 872   54.5em
+$bp-large-2: 1200px; // 1200  75em
+$bp-xl: 1440px; // 1440  90em
+$bp-xl-2: 1980px; // 1980  123.75em
+$bp-xl-3: 2560px; // 2560  160em
+$bp-xl-4: 3840px; // 2560  160em
+
+$desktop-text-section: 50%;
+$desktop-text-size: 1.125rem;
+
+$medium-text-size: 1.3125rem;
+
+$mobile-text-section: 67%;
+$mobile-text-size: 0.875rem;
+
+$mobile-lineHeight: 1.5rem;
+$header-space-bottom: 60px;
+
+.bottom {
+	&_zone {
+		@include m.flex-master(column, flex-end, null);
+		position: fixed;
+		width: 5%; // 	width: 100%;
+		bottom: 0px;
+		z-index: 10;
+		opacity: 1;
+		transition: opacity 2s;
+		pointer-events: none;
+		height: 100%;
+		@media (min-width: $bp-med-2) {
+			@include m.flex-master(column, center, null);
+			width: 8%;
+		}
+		@media (min-width: $bp-large-2) {
+			@include m.flex-master(column, center, null);
+			width: 5%;
+		}
+	}
+	&_mobile {
+		pointer-events: auto;
+		align-self: flex-start;
+		width: 16%;
+		display: flex;
+		flex-direction: column;
+		padding-left: 7px;
+		padding-bottom: 60px;
+		& > a {
+			width: 32px;
+			height: 32px;
+			margin-bottom: 10px;
+
+			@media (min-width: $bp-small) {
+				width: 40px;
+				height: 40px;
+			}
+		}
+	}
+
+	&_desktop {
+		pointer-events: auto;
+		@include m.flex-master(column, flex-start, center);
+		padding-bottom: 3rem;
+
+		&_wrapper {
+			@include m.flex-master(column, space-evenly, center);
+			gap: 1rem;
+
+			&_icon {
+				@include m.flex-master(row, null, center);
+				@include m.cursor();
+				width: 70%; //63px 22%
+				position: relative;
+
+				> img:nth-child(1) {
+					margin-top: 4.5%;
+					margin-left: 4.75%;
+					width: 91%; //57px
+				}
+				> img:nth-child(2) {
+					position: absolute;
+					top: 0;
+					display: none;
+					z-index: 1;
+					width: 100%;
+				}
+
+				&:hover {
+					> img:nth-child(2) {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

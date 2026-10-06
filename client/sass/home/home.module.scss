@@ -1,0 +1,976 @@
+@use "../mixins" as m;
+@use "../colors" as c;
+
+$bp-small: 384px;            // 384   24em
+$bp-small-2: 500px;       // 500   31.25em
+$bp-small-3: 636px;        // 636   39.8em
+$bp-med: 748px;            // 748   46.8em
+$bp-med-2: 800px;            // 800   50em
+$bp-large: 872px;          // 872   54.5em
+$bp-large-2: 1200px;          // 1200  75em
+$bp-xl: 1440px;               // 1440  90em 
+$bp-xl-2: 1980px;         // 1980  123.75em
+$bp-xl-3: 2560px;            // 2560  160em
+$bp-xl-4: 3840px;            // 2560  160em
+
+@mixin highlightText($bgColor, $fontColor: c.$primary-font-color) {
+	background-color: $bgColor;
+	color: $fontColor;
+	padding: 3px 10px 3px 10px;
+	min-width: 130px;
+	font-weight: 600;
+}
+
+@keyframes interference  {
+	10% {filter: opacity(0.94);}
+	20% {filter: opacity(1) ;}
+	30% {filter: opacity(0.8);}
+	41% {filter: opacity(1) ;}
+	50% {filter: opacity(0.98);}
+	60% {filter: opacity(0.78) ;}
+	70% {filter: opacity(0.78) ;}
+	80% {filter: opacity(0.64) ;}
+	90% {filter: opacity(1) ;}
+}
+
+$desktop-text-section: 50%;
+$desktop-text-size: 1.125rem;
+
+$medium-text-size: 1.3125rem;
+
+$mobile-text-section: 67%;
+$mobile-text-size: 0.875rem;
+
+// $mobile-margin: 40% 10% 0 10%;
+$mobile-lineHeight: 1.5rem;
+$header-space-bottom: 60px;
+
+@mixin rarityHover () {
+	position:relative; 
+	display: inline-block;
+	font-weight: 600;
+	text-decoration: underline;
+	&_popup {
+		position:absolute;	
+		min-width:204px;	
+		height: 87px;
+		& > img {
+			position:absolute;
+			top:0;
+			z-index: 1;
+			filter: drop-shadow(5px 5px 2px #00574A);
+		}
+	}
+	&_popupText {
+		height: 80px;
+		width:100%;
+		display:flex;
+		padding: 8%;
+		justify-content: center;
+		align-items: center;
+		
+		& > div {
+			height: 77px;
+			display:flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			z-index: 2;
+			& > span {
+				font-size: 0.8725rem;
+				font-family: PFRondaSeven;
+				color: #ffffff;
+				line-height: 22px;
+			}
+		}
+	}
+}
+.App {
+	width: 100%;
+	position: relative;
+	background: url("/img/home/backgrounds/Sky.png") no-repeat;
+	background-size: 100% 43%;
+ 	padding-bottom: 60%;
+
+	@media only screen and (max-width: 3840px) {
+		background-size: 100% 34%;
+	}  
+
+	@media only screen and (max-width: 2560px) {
+		background-size: 100% 34%;
+	} 
+
+	@media only screen and (max-width: 1920px) {
+		background-size: 100% 40%;
+	}
+
+	@media only screen and (max-width: 1600px) {
+		background-size: 100% 44%;
+	}
+
+	@media only screen and (max-width: 1200px) {
+		background-size: 100% 45%;
+	}
+
+	@media only screen and (max-width: 800px) {
+		background-size: 100% 50%;
+	}
+
+	@media only screen and (max-width: 600px) {
+		background-size: 100% 45%;
+		padding-bottom: 25%;
+	}
+
+	@media only screen and (max-width: 400px) {
+		background-size: 100% 52%;
+		padding-bottom: 25%;
+	}
+}
+.sunlight {
+	position: absolute;
+	top: 0;
+	left: 15%;
+	max-width: 60%;
+	animation: interference 1.5s infinite linear;
+}
+.parallax_group {
+	position: relative;
+}
+
+/*done */
+.shop {
+	&_zone {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		z-index:3;
+		padding-top: 28.5%;
+
+		@media (min-width: $bp-med) {  
+			padding-top: 22%;
+		}
+		@media (min-width: $bp-med-2) {  
+			padding-top: 19%;
+		}
+		@media (min-width: $bp-large-2) {  
+			padding-top: 12%;
+		}
+	}
+	&_fish1 {
+		width: min(8vw, 131px);
+		position: relative;
+		& > img {
+			position: absolute;
+			bottom: 20%;
+			width: 100%;
+		}
+		@media only screen and (max-width: 800px) {
+			display: none;
+		}
+	}
+	&_fish2 {
+		width: min(8vw, 131px);
+		position: relative;
+		& > img {
+			position: absolute;
+			bottom: 10%;
+			width: 100%;
+		}
+		@media only screen and (max-width: 800px) {
+			display: none;
+		}
+	}
+	&_img {
+		width: 100vw; 
+		z-index:2;
+
+		@media (min-width: $bp-small-3) {  
+			width: 60vw;
+		}
+
+		@media (min-width: $bp-med) {  
+			width: 75vw;
+		}
+		@media (min-width: $bp-med-2) {  
+			width: max(65vw, 650px);
+		}
+		@media (min-width: $bp-large-2) {  
+			width: max(50vw, 750px);
+		}
+
+		@media (min-width: $bp-xl-3) {  
+			width: min(60vw, 1200px); 
+		}
+		@media (min-width: $bp-xl-4) {  
+			width: min(70vw, 1300px); 
+		}
+	}
+}
+
+.sand {
+	&_zone {
+		@include m.flex-master(column, flex-start, center);
+		position:relative;
+		z-index: 2;
+		&_sand{
+			@media only screen and (min-width: 2000px) {
+				background: url("/img/home/backgrounds/repeat_Layer2.png") no-repeat;
+			}
+
+		   width: 100%;
+		   background: url("/img/home/backgrounds/Layer2.png") no-repeat;
+		   background-position: 0 0;
+		   background-size: 100%;
+		   position: absolute;
+		   top:-3vh;
+		   padding-bottom: 170%; // to cover white area on next section
+		   height:clamp(400px, 24vh, 2888px);
+		   object-fit: cover;
+	   }
+	}
+}
+/*done */
+.comingsoon {
+	&_zone{
+		width: $mobile-text-section;
+		z-index: 2;
+		@media (min-width: $bp-med-2) {  
+			width: $desktop-text-section;
+		}
+
+	}
+	&_paragraphContainer {
+		@include m.paragraphContainer();
+		color: #064F43;
+		font-weight: 600;
+		text-align: center;
+	}
+	&_hero{
+		&_header{
+			font-family: Safety Goggles;
+			font-size: 1.65rem;
+			margin-top: 2rem;
+			margin-bottom: 4rem;
+			text-shadow: -2px -5px #7EB877;
+			color: #246B5A;
+			@media only screen and (max-width: 3840px) {
+				font-size: 4.5rem;
+				line-height: 2.25rem;
+				margin-bottom: 2rem;
+			}
+			@media only screen and (max-width: 2560px) {
+				font-size: 4.25rem;
+				line-height: 2.25rem;
+				margin-bottom: 2rem;
+			}
+			@media only screen and (max-width: 1980px) {
+				font-size: 3.75rem;
+				line-height: 2.25rem;
+				margin-bottom: 2rem;
+			}
+			@media only screen and (max-width: 1440px) {
+				font-size: 3.1875rem;
+				line-height: 2.25rem;
+				margin-bottom: 2rem;
+			}
+			@media only screen and (max-width: 850px) {
+				font-size: 2.25rem;
+				line-height: 2.25rem;
+				margin-bottom: 1rem;
+			} 
+			@media only screen and (max-width: 600px) {
+				font-size: 1.9rem;
+			} 
+			@media only screen and (max-width: 400px) {
+				font-size: 1.65rem;
+			}
+		}
+		&_text{
+			color: #187e6d;
+		}
+	}
+
+
+	&_imgMobile {
+		display: none;
+		@media only screen and (max-width: 600px) {
+			display: flex;
+			width: $mobile-text-section;
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 15px;
+			z-index: 2;
+			
+			& > img:nth-child(2)  {
+				width: 80%;
+			}
+		}
+		@media only screen and (max-width: 400px) {
+			display: flex;
+			width: 48%;
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 12px;
+			z-index: 2;
+			
+			& > img:nth-child(2)  {
+				width: 80%;
+			}
+		}
+	}
+	&_iconContainer{
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		width: min(30vw, 425px);
+
+		a {
+			z-index: 2;
+		}
+		&_twitter{
+			// padding percentage is always calculated based on the element's width
+			width: 26%;
+			height:0;
+			padding-bottom: 21%;
+
+			&:hover{
+				background: url("/img/home/follow_us/follow_icons_twitter_on_x3.png") no-repeat;
+				background-size: contain;
+			}
+		}
+
+		&_discord{
+			width:26%;
+			height:0;
+			padding-bottom: 21%;
+			&:hover{
+				background: url("/img/home/follow_us/follow_icons_discord_on_x3.png") no-repeat;
+				background-size: contain;
+			}
+		}
+		&_instagram{
+			width:26%;
+			height:0;
+			padding-bottom: 21%;
+			&:hover {
+				margin-top: 1.5%;
+				background: url("/img/home/follow_us/follow_icons_instagram_on_x3.png") no-repeat;
+				background-size: contain;
+			}
+		}
+		&_icons {
+			pointer-events: none;
+			position: absolute;
+			width: min(30vw, 425px);
+		}	
+	}
+	&_container {
+		@include m.flex-master(row, flex-start, center);
+	}
+}
+/*done */
+.crab {
+	&_anat {
+		@include m.z-layers(4, "/img/home/backgrounds/Layer4.png", 60%);
+		@include m.flex-master(null, center, null);
+		// pointer-events: none;
+
+		@media (min-width: $bp-med-2) {  
+			padding-bottom: 115%;
+		}
+	}
+	
+	&_container {
+		@include m.flex-master(column, center, center);
+		width: $mobile-text-section;
+		margin-top: 55%;
+		
+		@media (min-width: $bp-small-3) {  
+			margin-top: 40%;
+		}
+
+		@media (min-width: $bp-med-2) {  
+			margin-top:33%;
+			width: $desktop-text-section;
+		}
+	}
+	&_heading {
+		@include m.heading();	
+		text-shadow: 1px 4px #004D41;
+		word-spacing: 0rem;
+		letter-spacing: 0rem;
+	}
+	&_rarityPopup {
+		display:flex;
+		flex-direction: row;
+		& > div{ 
+			width:50%;
+		}
+	}
+	&_paragraphContainer {
+		@include m.paragraphContainer();
+		margin-bottom: $header-space-bottom;
+		position:relative; 
+	}
+	&_reroll{
+		display:flex;
+		flex-direction: row;
+		justify-content:center;
+		margin-bottom: $header-space-bottom;
+
+		& > a {
+			position:relative;
+			width: 202px;
+			height: 90px;
+			color: #FFFFFF!important;
+
+			@media (min-width: $bp-xl-3) {  
+				width: 404px;
+				height: 280px;
+			}
+
+			& > div {
+				position:absolute;
+				width:135px;
+				height:70px;
+				top: 3px;
+				right:4px;
+				display:flex;
+				justify-content:center;
+				align-items: center;
+				font-family: Safety Goggles;
+				font-size:2.1875rem;
+
+				@media (min-width: $bp-xl-3) {  
+					width: 250px;
+					height: 140px;
+
+					font-size: 4rem;
+				}
+			}
+			&:hover {
+				color: #38796D!important;
+			}
+		}
+	}
+	&_normal {
+		color: #58BCA2;
+		@include rarityHover();
+		&_popup {
+			top:-300%;
+			left: -4rem;
+
+			@media only screen and (max-width: 600px) {
+				top:-400%;
+				left: -4.5rem;
+			}
+		}
+	}
+	&_magic {
+		color: #B88AF5;
+		@include rarityHover();
+		&_popup {
+			top:-300%;
+			left: -4.75rem;
+			@media only screen and (max-width: 600px) {
+				top:-400%;
+				left: -5.5rem;
+			}
+		}
+	}
+	&_rare {
+		color: #8ED5FB;
+		@include rarityHover();
+		&_popup {
+			top:-300%;
+			left: -5.25rem;
+			@media only screen and (max-width: 600px) {
+				top:-400%;
+				left: -5.5rem;
+			}
+		}
+	}
+	&_legendary {
+		color: #F19A46;
+		@include rarityHover();
+		&_popup {
+			top:-300%;
+			left: -5.25rem;
+			@media only screen and (max-width: 600px) {
+				top:-400%;
+				left: -5rem;
+			}
+		}
+	}
+	&_frame {
+		width: min(60vw, 450px);
+		height:auto;
+		position:relative;
+
+		@media (min-width: $bp-xl-3) {  
+			width: min(60vw, 800px);
+		}
+		
+		&_image {
+			position:absolute;
+			width: 87%;
+			height: auto;
+			left: 1.8rem;
+			top: 7.5%;
+			z-index: -1;
+
+			& > img {
+				width:100%;
+			}
+		}
+
+		@media only screen and (max-width: 800px) {
+			width: 400px;
+
+			&_image {
+				top:6.5%;
+				width: 89%;
+				left: 1rem;
+			}
+		}
+		
+		@media only screen and (max-width: 600px) {
+			width: 60vw;
+
+			&_image {
+				top:6.5%;
+				width: 89%;
+				left: 0.8rem;
+			}
+		}
+	}
+	&_rarityContainer {
+		@include m.flex-master(column, null, null);
+		margin-top: 2%;
+		position: relative;
+
+		@media (min-width: $bp-med-2) {  
+			@include m.flex-master(row, space-between, null);
+		}
+		@media (min-width: $bp-large-2) {  
+			margin-top: 3%;
+		}
+	}
+	&_rarityBlock {
+		margin-top: 3%;
+		@include m.flex-master(row, space-between, null);
+		div:nth-child(2) {
+			text-align: right;
+		}
+
+		@media (min-width: $bp-med-2) {  
+			@include m.flex-master(column, null, null);
+		}
+	}
+}
+/*done */
+.treasure {
+	&_zone {
+		width: 100%;
+		@include m.flex-master(column, center, center);
+		
+		margin-top:5%;
+		padding-bottom: 60%;
+		
+		@media (min-width: $bp-med-2) {  
+			padding-bottom: 35%;
+		}
+
+		@media (min-width: $bp-xl) {  
+			padding-bottom: 0%;
+		}
+	}
+
+	&_image {
+		@include m.flex-master(column, null, center);
+		position: relative;
+		margin-top:2%;
+		width: clamp(50vw, 75%, 100%);
+		padding-bottom: 35%;
+		left:-5vw;
+
+		@media (min-width: $bp-med-2) {  
+			margin-top:10%;
+		}
+	}
+
+	&_card {
+		position: absolute;
+		left:48%;
+	
+		/* for reading card text properly */
+		width: clamp(8vw, 25%, 225px);
+	}
+	&_chest {
+		position: absolute;
+		top: min(210px, 16vw);
+		z-index: 2;
+	}
+	&_chestFloor {
+		pointer-events: none;
+		position: absolute;
+		top: min(210px, 16vw);
+		animation: interference 1.5s infinite ease-out;
+		z-index: 1;
+		opacity: 0.7;
+	}
+	&_chestLight {
+		pointer-events: none;
+		position: absolute;
+		top: min(210px, 16vw);
+		animation: interference 1.5s infinite linear;
+		z-index: 3;
+		opacity: 0.7;
+	}
+}
+.footer {
+	&_zone {
+		pointer-events:auto;
+		@include m.z-layers(10, "/img/home/backgrounds/Layer6.png", 3%);
+		@include m.flex-master(column, null, center);
+		padding-bottom: 25%;
+
+		@media (min-width: $bp-med) {  
+			padding-bottom: 7%;
+		}
+		
+	}
+	&_container {
+		margin-top: 100%;
+		width: $mobile-text-section;
+		@media (min-width: $bp-med) {  
+			margin-top: 55%;
+		}
+		@media (min-width: $bp-med-2) {  
+			margin-top: 38.5%;
+			width: $desktop-text-section;
+		}
+		
+		
+	}
+	&_follow {
+		margin-bottom: $header-space-bottom;
+		position: relative;
+	}
+	&_followContainer {
+		@include m.paragraphContainer();
+	}
+	&_bubble1 {
+		position: absolute;
+		height: auto;
+		right: 24%;
+		top: -8rem;
+		width: 40px;
+		@media only screen and (max-width: 1200px) {
+			width: 32px;
+		}
+		@media only screen and (max-width: 800px) {
+			width: 22px;
+		}
+		@media only screen and (max-width: 400px) {
+			width: 15px;
+		}
+	}
+	&_bubble2 {
+		position: absolute;
+		height: auto;
+		right: -18%;
+		top: -6rem;
+		width: 40px;
+		@media only screen and (max-width: 1200px) {
+			width: 32px;
+		}
+		@media only screen and (max-width: 800px) {
+			width: 22px;
+		}
+		@media only screen and (max-width: 400px) {
+			width: 15px;
+		}
+	}
+	&_buttons{
+		@include m.flex-master(column,center, center);
+		margin-bottom: $header-space-bottom;
+		font-size: 2rem;
+		width: 100%;
+
+		@media (min-width: $bp-med-2) {  
+			@include m.flex-master(row, space-between, center);
+			margin-bottom: $header-space-bottom;
+			font-size: $medium-text-size;
+		}
+
+		@media (min-width: $bp-large-2) {  
+			
+		}
+
+		& > a {
+			position:relative;
+			@include m.flex-master(row, center, null);
+			width: 100%;
+			height: 100%;
+			margin-bottom: 2rem;
+			color: #FFFFFF!important;
+
+			@media (min-width: $bp-med) {  
+				width:80%;
+			}
+
+			@media (min-width: $bp-med-2) {  
+				width: 30%;
+			}
+			& > div {
+				position:absolute;
+				display: flex;
+				text-align: center;
+				align-items: center;
+				height: 80%;
+				& > span { 
+					font-family: Safety Goggles;
+				}
+			}
+			& > img {
+				width:100%;
+				@media (min-width: $bp-med-2) {  
+					width: min(100%, 250px);
+				}
+				
+			}
+		}
+	}
+	&_discord {
+		&:hover{
+			color: #032F9F!important;
+		}
+	}
+	&_instagram {
+		&:hover{
+			color: #AA0047!important;
+		}
+	}
+	&_medium {
+		&:hover{
+			color: #35454F!important;
+		}
+	}
+	&_twitter {
+		&:hover{
+			color: #007DAA!important;
+		}
+	}
+	&_social {
+		display: flex;
+		justify-content: center;
+	}
+	&_anomura {
+		@include m.flex-master(row, center, null);
+		margin-bottom:$header-space-bottom;
+		& > img {
+			width: 100%;
+			@media (min-width: $bp-med) {  
+				width: min(400px, 50%);
+			}
+		}
+	}
+	&_logo {
+		@include m.flex-master(row, center, null);
+		margin-bottom:$header-space-bottom;
+
+		& > img {
+			width: 50%;
+			@media (min-width: $bp-small-3) {  
+				width: min(400px, 33%);
+			}
+		}
+	}
+	&_presented {
+		@include m.paragraphContainer();
+	}
+	&_mission {
+		@include m.paragraphContainer();
+		& > p {
+			color: #95DDC0;
+		}
+	}
+	&_policy {
+		position: relative;
+		@include m.flex-master(column, center, center);
+		margin-top: min(10vh, 150px);
+		
+		@media (min-width: $bp-med-2) {  
+			margin-top: min(10vh, 175px);
+		}
+		&_line {
+			width: 100%;
+			border-bottom: 1px solid #F55690;
+			position: absolute;
+			top: 0;
+		}
+		& > div {
+			@include m.flex-master(column, center, center);
+			margin-top: 2rem;
+			font-size: 0.875rem;
+			width: 80%;
+			
+			@media (min-width: $bp-med-2) {  
+				font-size: 0.9rem; 
+			}
+			@media (min-width: $bp-large-2) {  
+				@include m.flex-master(row, space-around, center);
+				font-size: 1.1rem; 
+			}
+			@media (min-width: $bp-xl-2) {  
+				font-size: 1.3rem; 
+			}
+			@media (min-width: $bp-xl-3) {  
+				font-size: 1.5rem; 
+			}
+			& > a {
+				color: #F55690!important;
+				font-family: PFRondaSeven;
+				text-decoration: none;
+				margin-bottom: 0.8rem;
+				line-height: 20px;
+			}
+		}
+	}
+	&_chestImage{
+		position:absolute;
+		left: -12%;
+		bottom: 0;
+		width: 40%;
+		display: none;
+
+		@media (min-width: $bp-med-2) {  
+			// width: min(600px, 33%);
+			display: block;
+			// left: 0%;
+		}
+		&_wrapper{
+			position: relative;
+			width:100%;
+			height:500px;
+		}
+		&_card {
+			position: absolute;
+			left:40%;
+			top:3rem;
+			width: clamp(8vw, 25%, 225px);
+		}
+		&_chest {
+			position: absolute;
+			bottom:0;
+			z-index: 2;
+		}
+		&_floor {
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			bottom:0;
+			animation: interference 1.5s infinite ease-out;
+			z-index: 1;
+			opacity: 0.7;
+		}
+		&_light {
+			height: 100%;
+			width: 100%;
+			pointer-events: none;
+			position: absolute;
+			bottom: 0.5rem;
+			animation: interference 1.5s infinite linear;
+			z-index: 3;
+			opacity: 0.7;
+		}
+	}
+	&_fish {
+		
+		position:absolute;
+		right: 0%;
+		bottom: 0;
+		width: 35%;
+
+		@media only screen and (max-width: 800px) {
+			display: none;
+		}
+
+		&_wrapper{
+			position: relative;
+			width: 100%;
+			height: 400px;
+		}
+
+		&_fishImage {
+			position: absolute;
+			bottom: 22%;
+			z-index: 2;
+			width: 60%;
+			right: 8%;
+		}
+	}
+	&_chestAndFish{
+		@media only screen and (min-width: 800px) {
+			display: none;
+		}
+	 	
+	 	position:relative;
+		width: 100vw;
+		margin-left: -25%;
+
+	 	&_wrapper{
+	 		position: relative;
+	 		width:100%;
+			display: flex;
+	 	}
+	 	&_chest {
+			position: relative;
+			top:0;
+			flex:65%;
+	 		z-index: 2;
+			& > :nth-child(2) {
+				position: absolute;
+	 	 		bottom:0;
+	 	 		animation: interference 1.5s infinite ease-out;
+	 	 		z-index: 1;
+	 	 		opacity: 0.7;
+			}
+	 	}
+		&_fishImage {
+		 	position: relative;
+			flex:35%;
+		 	z-index: 2;
+			 & > img {
+				position: absolute;
+				left: -35%;
+			}
+		}
+	 	&_floor {
+	 	 	position: absolute;
+	 	 	bottom:0;
+	 	 	animation: interference 1.5s infinite ease-out;
+	 	 	z-index: 1;
+	 	 	opacity: 0.7;
+	 	}
+	 	&_light {
+	 		pointer-events: none;
+	 		position: absolute;
+	 		bottom: 0.5rem;
+	 		animation: interference 1.5s infinite linear;
+	 		z-index: 3;
+	 		opacity: 0.7;
+	 	}
+	}
+}
+
+
+/* ----------- General ipads ----------- */
+@media only screen  and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (-webkit-min-device-pixel-ratio: 1) 
+and (-webkit-min-device-pixel-ratio: 2) {
+
+}

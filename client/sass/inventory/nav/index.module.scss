@@ -1,0 +1,267 @@
+@use "../../mixins" as m;
+@use "../../variables" as v;
+
+.nav {
+	&_menu {
+		@include m.flex-master(row, space-between, center);
+		position: relative;
+        padding: 0.75rem;
+        z-index: 2;
+
+        @media (min-width: v.$bp-small) {  
+            padding: 0.85rem;
+        }
+        @media (min-width: v.$bp-med) {  
+            padding: 1.25rem;
+        }
+        @media (min-width: v.$bp-xl-2) {  
+            padding: 1.5rem;
+        }
+        @media (min-width: v.$bp-xl-3) {  
+            padding: 1.75rem;
+        }
+	}
+    &_stage {
+        @include m.flex-master(row, flex-start, center);
+        flex: 25%;
+        height: 100%;
+        color: white;
+        
+        &_logo {
+            max-height: 100%;
+            position: relative;
+            @include m.flex-master(column, center, center);
+
+            & > img {
+                width: 1.75rem;
+                @media (min-width: v.$bp-med) {  
+                    width: 2.75rem;
+                }
+                @media (min-width: v.$bp-large-2) {  
+                    width: 2.5rem;
+                }
+                @media (min-width: v.$bp-xl-2) {  
+                    width: 3.25rem;
+                }
+                @media (min-width: v.$bp-xl-3) {  
+                    width: 4.25rem;
+                }
+                @media (min-width: v.$bp-xl-4) {  
+                    width: 5rem;
+                }
+            }
+        }
+        &_text{
+            @include m.flex-master(column, center, null);
+            padding-left: 0.5rem;
+
+            @media (min-width: v.$bp-med) {  
+                padding-left: 1rem;
+            }
+
+            & > :nth-child(1) {
+                font-size: 1rem;
+                font-family: Safety Goggles;
+
+                @media (min-width: v.$bp-small-2) {  
+                    font-size: 1.35rem;
+                }
+                @media (min-width: v.$bp-med) {  
+                    font-size: 1.5rem;
+                }
+                @media (min-width: v.$bp-large-2) {  
+                    font-size: 1.5rem;
+                }
+                @media (min-width: v.$bp-xl-2) {  
+                    font-size: 2rem;
+                }
+                @media (min-width: v.$bp-xl-3) {  
+                    font-size: 2.25rem;
+                }
+                @media (min-width: v.$bp-xl-4) {  
+                    font-size: 2.5rem;
+                }
+            }
+            & > :nth-child(2) {
+                font-size: 0.75rem;
+                font-family: PFRondaSeven;
+
+                @media (min-width: v.$bp-small-3) {  
+                    font-size: 0.85rem;
+                }
+                @media (min-width: v.$bp-large-2) {  
+                    font-size: 1rem;
+                }
+                @media (min-width: v.$bp-xl-2) {  
+                    font-size: 1.1rem;
+                }
+                @media (min-width: v.$bp-xl-3) {  
+                    font-size: 1.25rem;
+                }
+                @media (min-width: v.$bp-xl-4) {  
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+	&_list {
+		@include m.flex-master(row, space-evenly, center);
+        width: 33%;
+
+        &_item {
+            font-size: 1.5rem;
+            margin-bottom: 1%;
+            font-family: Safety Goggles;
+            color: #fff!important;
+            opacity: 0.75;
+
+            @media (min-width: v.$bp-med-2) {  
+                font-size: 1.5rem;
+            }
+            @media (min-width: v.$bp-large-2) {  
+                font-size: 2rem;
+            }
+            @media (min-width: v.$bp-xl-3) {  
+                font-size: 2.75rem;
+            }
+            @media (min-width: v.$bp-xl-3) {  
+                font-size: 4rem;
+            }
+        }
+	}
+    &_button {
+        @include m.flex-master(null, flex-end, center);
+        & > div:nth-child(1) {
+            
+            font-size: 1.5rem;
+        }
+        flex: 25%;
+
+        &_pink { // 526 x 129
+            @include m.large_button();
+            width: min(50%, 120px);
+
+            @media (min-width: v.$bp-med) {  
+                width: auto;
+                max-width: 200px;
+            }
+            @media (min-width: v.$bp-xl) {  
+                max-width: 250px;
+            }
+            @media (min-width: v.$bp-xl-2) {  
+                max-width: 300px;
+            }
+            &:hover {
+                color: #CE3C85;
+            }
+    
+        }
+	}
+    &_mobile {
+        background: #4383AE;
+        height: 100%; // 100vh
+        width: 100vw; // 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease-in-out;
+        z-index: 10;
+
+        &_wrapper {
+            height: 100%;
+        }
+        &_close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding-right: 0.75rem;
+            height: auto;
+            font-size: 1.75rem;
+            color: #fff;
+        }
+        &_content {
+            @include m.flex-master(column, space-around, center);
+            height: 100%;
+
+            &_logo {
+                width: 80%;
+            }
+            &_list {
+                @include m.flex-master(column, center, center);
+                width: 100%;
+        
+                &_item {
+                    font-size: 2rem;
+                    margin-bottom: 1%;
+                    font-family: Safety Goggles;
+                    opacity: 0.75;
+                }
+                
+            }
+
+            &_footer {
+                @include m.flex-master(column, flex-end, center);
+                width:60%;
+                gap: 1rem;
+
+                &_button {
+                    @include m.flex-master(null, center, center);
+
+                    &_balance {
+                        color: white;
+                        font-family: PFRondaSeven;
+                        font-size: 1rem;
+                        flex: 45%;
+
+                        @media (min-width: v.$bp-small-2) {  
+                            font-size: 1.25rem;
+                        }
+                        @media (min-width: v.$bp-med-2) {  
+                            // width: 27%;
+                        }
+                     
+                    }
+            
+                    &_pink {
+                        @include m.large_button();
+                        &:hover {
+                            color: #CE3C85;
+                        }
+                
+                        &:disabled {
+                            cursor: not-allowed!important;
+                            color: #A2B7B6!important;
+                            &:hover {
+                                color: #A2B7B6!important;
+                            }
+                        }
+                    }
+                }
+
+                &_socials {        
+                    @include m.flex-master(row, space-evenly, center);
+                    gap: 1rem;
+                    width: 100%;
+                    @media (min-width: v.$bp-small-3) {  
+                        // width: 33%;
+                    }
+                    @media (min-width: v.$bp-xl-3) {  
+                        // width: 27%;
+                    }
+             
+                    &_icon {
+                        @include m.flex-master(row, null, center);
+                        width: 20%; 
+                        position: relative;
+                    
+                        > img:nth-child(1){
+                            margin-top: 4.5%;
+                            margin-left: 4.75%;
+                            width: 91%; 
+                        }
+                    }
+                }   
+            }
+        }
+    }
+}

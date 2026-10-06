@@ -1,0 +1,347 @@
+@use "../mixins" as m;
+
+$bp-small: 24em;            // 384
+$bp-small-2: 31.25em;       // 500
+$bp-small-3: 39.8em;        // 636
+$bp-med: 46.8em;            // 748
+$bp-med-2: 50em;            // 800
+$bp-large: 54.5em;          // 872
+$bp-large-2: 75em;          // 1200
+$bp-xl: 90em;               // 1440
+$bp-xl-2: 123.75em;         // 1980
+$bp-xl-3: 160em;            // 2560
+$bp-xl-4: 230em;            // 3840
+// .container{
+//     width:508px;
+//     height: 500px;
+//     position: relative;
+//     display:flex;
+//     flex-direction: column;
+// }
+
+.container {
+    display:flex;
+    flex-direction: column;
+    position: relative;
+}
+.wrapper{
+    display: flex;
+    align-items: flex-end;
+    max-width:100%;
+    max-height:100%;
+    position: relative;
+}
+
+.toggleModal {
+    &_wrapper {
+        position: absolute;
+        top: 3%;
+        left: 3%;
+        width: 12%;
+        height: auto;
+    }
+    &_container {
+        width: 63px;
+        @include m.flex-master(row, null, center);
+        position: relative;
+
+        > img:nth-child(1){
+            margin-top: 3px;
+            margin-left: 3px;
+            width: 57px;
+        }
+        > img:nth-child(2) {
+            position: absolute;
+            top:0;
+            display:none;
+            z-index: 1;
+            width: 63px;
+        }
+        &:hover {
+            > img:nth-child(2) {
+                display: block;
+            }
+        }
+    }
+}
+
+.modal{
+    &_container{
+        width: 80%;
+        height: 95%;
+        display:flex;
+        flex-direction: column;
+        background: url("/img/imageviewer/Others/OpenSea Invetory_framex2_04.png") no-repeat;
+        background-size: 100% 100%;
+        border-radius: 0.5rem;
+        z-index: 3;
+    }
+
+    &_overlay{
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        cursor: pointer;
+        pointer-events: auto;
+    }
+}
+.loading {
+    @include m.flex-master(column, center, center);
+    font-family: PFRondaSeven;
+}
+
+.component {
+	&_zone {
+        pointer-events: auto;
+        height: 80%; 
+        margin: 18% 11% 15% 11%;
+        overflow:hidden;
+        z-index: 2;
+        position: relative;
+    }
+
+    &_list {
+        height: 100%; 
+        @include m.flex-master(column, space-between, null);
+        // @include m.flex-master(column, space-evenly, null);
+        padding-bottom: 3px;
+
+        &_item {
+            @include m.flex-master(row, null, center);
+ 
+            &_icon {
+                // width: min(10vw, 50px);
+                width: 39px;
+                @include m.flex-master(row, null, center);
+                position: relative;
+
+                @media (min-width: $bp-small) {  
+                    width: 42px;
+                }
+                @media (min-width: $bp-small-2) {  
+                    width: 54px;
+                }
+
+                > img:nth-child(1){
+                    margin-top: 2px;
+                    margin-left: 2px;
+                    width: 36px;
+                    @media (min-width: $bp-small) {  
+                        margin-top: 2px;
+                        margin-left: 2px;
+                        width: 39px;
+                    }
+                    @media (min-width: $bp-small-2) {  
+                        margin-top: 3px;
+                        margin-left: 3px;
+                        width: 48px;
+                    }
+                }
+                > img:nth-child(2) {
+                    position: absolute;
+                    top:0;
+                    display:none;
+                    z-index: 1;
+                    width: 39px;
+                    @media (min-width: $bp-small) {  
+                        width: 42px;
+                    }
+                    @media (min-width: $bp-small-2) {  
+                        width: 54px;
+                    }
+                }
+                
+                &:hover {
+                    > img:nth-child(2) {
+                        display: block;
+                   }  
+                }
+
+            }
+
+            &_description {
+                @include m.flex-master(row, null, center);
+                flex: 0.75rem;
+                margin-left: 4%;
+                font-size: 1rem;
+                font-family: PFRondaSeven;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                display: inline-block;
+                overflow: hidden !important;
+
+                @media (min-width: $bp-small-2) {  
+                    font-size: 1.15rem;
+                }
+
+                &_normal {
+                    color: #A5EBE3;
+                }   
+                &_magic {
+                    color: #BDB9FB;
+                }
+                &_rare {
+                    color: #FFC8B3;
+                } 
+                &_legend {
+                    color: #FACD66;
+                } 
+            }
+        }
+    }
+
+    &_card {
+        height:100%;
+        width: 80%;
+        top:0;
+        left:16%;
+        position: absolute;
+        z-index: 2; // to have this layer cover the card text behind
+        padding-bottom: 3px;
+
+        @media (min-width: $bp-small) {  
+            left:20%;
+        }
+        @media (min-width: $bp-small-2) {  
+            left:20%;
+        }
+        &_wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            & > img {
+                height: 100%;
+            }
+        }
+        &_description {
+            position: absolute;
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            padding: 17% 0; //10% 0;
+            @include m.flex-master(column, space-evenly, center);
+        }
+
+        &_hexagon {
+            // margin-top:9%;
+            width: 46%; // 40
+            max-width: 46%;
+            height: 40%; //33%; 
+            position: relative;
+           
+            &_greyLayer {
+                position: absolute;
+                top:5%;
+                left:5%;
+                width: 85%;
+                z-index: -2;
+            }
+            &_headpieces {
+                position: absolute;
+                width: 48%;
+                height: auto;
+                z-index: -1;
+                margin-top: 14%; // 10%
+                margin-left: 25%;
+            }
+            &_body {
+                position: absolute;
+                width: 79%;
+                height: auto;
+                z-index: -1;
+                margin-top: 3%; //1%; 
+                margin-left: 10%;
+            }
+            &_claws {
+                position: absolute;
+                width: 77%;
+                height: auto;
+                z-index: -1;
+                margin-top: 2%; // -1%
+                margin-left: 29%; // 20
+            }
+            &_legs {
+                position: absolute;
+                width: 70%;
+                height: auto;
+                z-index: -1;
+                margin-top: 16%; // -14
+                margin-left: 38%; // 20
+            }
+            &_shell {
+                position: absolute;
+                width: 100%; //61
+                height: auto;
+                z-index: -1;
+                margin-top: -7%; // 24 -23
+               // margin-left: 21%; // 33
+            }
+            &_background {
+                position: absolute;
+                width: 62%;
+                height: auto;
+                z-index: -1;
+                margin-top: 10%; // -14
+                margin-left: 17%; // 20
+            }
+        }
+
+        &_name {
+            width: 70%;
+            font-family: PFRondaSeven;
+            line-height: 1.35rem;
+            font-size: 0.9rem;
+            text-align: center;
+            overflow-wrap: break-word!important;
+            flex: 1;
+            @include m.flex-master(row, center, center);
+
+            @media (min-width: $bp-small-2) {  
+                font-size: 1rem;
+            }
+        }
+
+        &_label {
+            width: 75%;
+            position: relative;
+            margin-top: auto;
+            
+            &_text {
+                @include m.flex-master(row, center, center);
+                position: absolute;
+                font-family: PFRondaSeven;
+                top:0;
+                height:100%;
+                width: 100%;
+                font-size: 1rem;
+
+                @media (min-width: $bp-small-2) {  
+                    font-size: 1.15rem;
+                }
+            }
+            &_legend {
+                color: #D1873A;
+            }
+            &_rare {
+                color: #E06655;
+            }
+            &_magic {
+                color: #7967DE;
+            }
+            &_normal {
+                color: #2483B2;
+            }
+            &_nothing {
+                color:#607E82;
+            }
+        }  
+    }
+}

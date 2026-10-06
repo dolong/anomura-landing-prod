@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Anomura Media Kit 🦀</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8b28620e-0c90-401f-9703-5a5cca07b7ed" class="page sans"><header><img class="page-cover-image" src="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/2.png" style="object-position:center 50%"/><h1 class="page-title">Anomura Media Kit 🦀</h1></header><div class="page-body"><h2 id="d464367c-f3a8-458e-9c2b-1a45f7c7b985" class=""><mark class="highlight-blue">Official Links</mark></h2><p id="21a8a6cd-fc15-47d7-aa1d-70f9126ff849" class="">Website: <a href="https://www.anomuragame.com/">https://www.anomuragame.com</a></p><p id="b73efae0-729f-48b0-99cf-361c818aff25" class="">Twitter: <a href="https://www.twitter.com/anomuragame">https://www.twitter.com/anomuragame</a></p><p id="d8fa1287-97e8-4ef0-91fa-1c1aedb85c0e" class="">Discord: <a href="https://www.discord.gg/anomuragame">https://www.discord.gg/anomuragame</a></p><p id="edfd663e-472e-4af4-aa35-c6a503b2d5b4" class="">Medium: <a href="https://medium.com/@anomura">https://medium.com/@anomura</a></p><p id="9d59bd97-afd7-40a7-90f7-a02099404dc6" class="">
+</p><h2 id="579eb023-fe21-4ad5-9937-86e1a52dffd8" class=""><mark class="highlight-blue">What is Anomura?</mark></h2><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="04d50654-f0b3-4e96-9ec0-e5b6f49b47c8"><div style="font-size:1.5em"><span class="icon">🌊</span></div><div style="width:100%">Anomura is a play-and-earn strategy RPG featuring innovative blockchain mechanics, beautiful pixel art and contributions to wildlife initiatives.</div></figure><p id="2b315e71-a57b-4f58-b0f7-d8b23eba6921" class="">
+</p><h2 id="015d6d15-1d45-4c51-a754-ca2b264795eb" class=""><mark class="highlight-blue">Key Messages</mark></h2><ul id="dacc660e-d8d1-4818-8114-aca4719484ef" class="bulleted-list"><li style="list-style-type:disc">Backed by <a href="https://www.vhslab.com/">Virtually Human Studio</a> (VHS), creators of <a href="https://zed.run/">ZED Run</a> and <a href="https://humanpark.io/">Human Park</a></li></ul><ul id="f491ce3c-63f3-410a-891e-d096f0d38d13" class="bulleted-list"><li style="list-style-type:disc">A game that is entertaining and fun first in contrast to play-2-earn games in the current landscape<ul id="69b919e9-44d4-4dae-bab6-de15aa602239" class="bulleted-list"><li style="list-style-type:circle">Features strategic gameplay with rougelike, dungeon crawler and deck building game features</li></ul><ul id="5a590082-4202-41a1-957b-f26b29a2caf5" class="bulleted-list"><li style="list-style-type:circle">Will allow players to choose if they want to monetize their experience</li></ul><ul id="f1a02a62-74c6-453b-b236-b54591997aa1" class="bulleted-list"><li style="list-style-type:circle">Built on Unity</li></ul><ul id="1b601c76-bb64-4264-9e15-96d1d18fb430" class="bulleted-list"><li style="list-style-type:circle">Future plans to release a mobile app</li></ul></li></ul><ul id="0e813e44-1d2f-4909-bb86-adea963ab5ef" class="bulleted-list"><li style="list-style-type:disc">Anomura is the world’s first Ocean Positive play-and-earn game<ul id="3ee2a712-de16-478e-be47-fa8483c58066" class="bulleted-list"><li style="list-style-type:circle">Partnering with <a href="https://aerial.is/">Aerial</a> to wipe out the carbon footprint of all of Ethereum transactions for initial NFT launch with SeaTrees’ top blue carbon REDD+ project</li></ul><ul id="a17db9da-86dc-4950-bd9f-a4f775b275f0" class="bulleted-list"><li style="list-style-type:circle">Going beyond carbon neutrality by restoring kelp in Southern California and planting mangrove forests in Indonesia</li></ul></li></ul><ul id="9eb50ca8-ff17-44a1-a22b-cbfae0c1453d" class="bulleted-list"><li style="list-style-type:disc">On a mission to lower the barrier of entry and attract web 2 gamers by offering a free-to-play game concept demo. Players will be able to experience the world of Anomura without a wallet.<ul id="fb87f0f3-f917-4c74-bea5-1c33c9475425" class="bulleted-list"><li style="list-style-type:circle">The integration of blockchain mechanics into lore and story in a seamless manner teaching web3 novices about how blockchain works</li></ul></li></ul><ul id="6976c57e-5d90-4d18-9e3f-72331e1c4acd" class="bulleted-list"><li style="list-style-type:disc">The first web3 game with NFT utility. Players can collect NFTs and level up their Anomura by defeating enemies and through unlockables in-game.<ul id="95024764-89ba-48c6-9234-c31dd8a23662" class="bulleted-list"><li style="list-style-type:circle">NFTs are a combination of on-chain and off-chain components. Over a billion combinations of attributes randomized on-chain.</li></ul></li></ul><ul id="bd45ea42-a5a7-4724-9277-4533c8396bbb" class="bulleted-list"><li style="list-style-type:disc">The play-to-donate feature allows players to donate to wildlife conservation efforts through in-game incentives and mechanics. Players will have the choice to allocate in-game rewards towards wildlife conservation efforts.</li></ul><ul id="6c3ca144-8b75-47e9-b5aa-0287e816a229" class="bulleted-list"><li style="list-style-type:disc">A fully interoperable game within the VHS ecosystem and beyond</li></ul><p id="12036df0-26e6-4733-bace-f2b91b928798" class="">
+</p><h2 id="6cf9717c-f03d-4818-9296-bf920b56a8ed" class=""><mark class="highlight-blue">Logo &amp; Assets</mark></h2><div id="ca0c9bb6-32a9-4e65-b8e7-ae902a23c954" class="column-list"><div id="a0776386-0aea-4f89-a3f5-82ad87d3bc17" style="width:50%" class="column"><p id="9856f37e-8f4c-4f0e-989a-9de291119163" class=""><strong>Primary logo</strong></p></div><div id="377d21cc-2aa7-4bcb-9c87-d2388aa3b963" style="width:50%" class="column"><p id="32315672-1c4c-4dea-b4f3-6563e1cf6597" class=""><strong>Secondary logo</strong></p></div></div><div id="7fa6b757-150f-4136-abb2-41a1a5a7c466" class="column-list"><div id="9fa27d83-f7ac-4e74-b986-ac6e0b0c54f9" style="width:50%" class="column"><figure id="ef57ce31-3142-49ac-ad2e-0f26e9110a14" class="image"><a href="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/20220503_Shell_Logo_10x.png"><img style="width:950px" src="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/20220503_Shell_Logo_10x.png"/></a></figure></div><div id="0a4ca9e9-8d43-4c2a-8ac7-bf4f2aec3d3d" style="width:50%" class="column"><figure id="4e1ac0da-7768-4754-8ebc-9e8fa41aed30" class="image"><a href="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/Logomark_64px.png"><img style="width:64px" src="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/Logomark_64px.png"/></a></figure></div></div><p id="42cf84f1-ee33-4c42-bc88-8e73c5780588" class="">
+</p><p id="1cefc839-a7aa-488b-841a-82925e169fd4" class=""><strong>Sample NFTs</strong></p><div id="bed1e7dc-78e9-4532-9d3e-cdddf9dc2f13" class="column-list"><div id="7ae3872a-2cf5-4ff6-93b5-456653c22ff0" style="width:50%" class="column"><figure id="23b85b76-97f1-452d-92b0-7659228cc7a8" class="image"><a href="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/Anomura_2.gif"><img style="width:800px" src="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/Anomura_2.gif"/></a></figure></div><div id="a6324f69-f5db-48a1-9d6d-f48aaab53dd9" style="width:50%" class="column"><figure id="1d5ddf40-60b2-4247-ad2e-ba3b1e23cd48" class="image"><a href="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/Anomura_3.gif"><img style="width:720px" src="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/Anomura_3.gif"/></a></figure></div></div><div id="f5b78ae1-6d56-477c-a20e-ea66ef0a3cab" class="column-list"><div id="7efad3d9-105e-45f8-a63a-97c201a63ab9" style="width:50%" class="column"><figure id="6405e63f-94d0-413a-96be-e430c1b5ac52" class="image"><a href="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/Anomura_1.gif"><img style="width:1200px" src="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/Anomura_1.gif"/></a></figure></div><div id="24190728-6dc3-47b9-9a33-8ed8cad67239" style="width:50%" class="column"><figure id="d19fcd8a-2cf3-4c30-bb17-66e5ea8352b5" class="image"><a href="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/NFT_5.gif"><img style="width:1200px" src="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/NFT_5.gif"/></a></figure></div></div><div id="71b1deb6-4dbc-46ef-964a-0e018834880c" class="column-list"><div id="8f776324-2969-4b48-8c8f-dd1d690fde5e" style="width:50%" class="column"><h2 id="de14412d-29f3-420a-a8f6-153ed252bbfc" class=""><mark class="highlight-blue">Founder Profile</mark></h2><figure id="a353c561-516e-4f61-a2ad-cd27ef1a2944" class="image"><a href="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/Untitled.png"><img style="width:512px" src="Anomura%20Media%20Kit%20%F0%9F%A6%80%20ef57ce31314249acad2e0f26e9110a14/Untitled.png"/></a></figure></div><div id="24d0c706-45cc-46de-88ee-95244d9d338a" style="width:50%" class="column"><p id="811b9f99-5904-45b7-acc2-716febd4b25f" class="">
+</p></div></div><p id="53612d00-6552-4be0-b273-fc376d011fd9" class=""><strong>Long Do - Game Director @ Virtually Human Studio, Creator of Anomura</strong></p><p id="bbb63239-f75c-4dd2-a1b5-390868f51e61" class="">Long Do is a technopreneur and a seasoned development leader with over 10 years of experience. A former pro Starcraft player, his understanding of video games and strategy is unparalleled. He believes in providing unique experiences utilizing bleeding-edge technologies to create the ultimate escapist games. Currently, Long is the Game Director of Anomura.</p><p id="9909b426-a79a-4f03-9a37-3dfc6ee2b1e1" class="">
+</p><h2 id="7819fbf3-d51b-4750-b032-db0fe032b8db" class=""><mark class="highlight-blue">Contact Us</mark></h2><p id="d39a5a93-297d-4be5-91d3-d3d7495e5e12" class="">Email: communications@anomuragame.com</p><p id="ad8c1149-b559-4fea-b757-62dc4eda214b" class="">Twitter: <a href="https://www.twitter.com/anomuragame">@AnomuraGame</a></p><p id="c636838c-59ed-4b2c-ac4f-97c33b797a5c" class="">
+</p></div></article></body></html>
