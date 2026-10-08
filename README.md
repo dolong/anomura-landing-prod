@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/deepsea/image/upload/f_auto/v1666471426/Anomura-Web-Assets/Loop_llqg3q.gif" alt="Anomura" width="100%" />
+  <img src="https://res.cloudinary.com/deepsea/image/upload/f_auto/v1666471426/Anomura-Web-Assets/Loop_llqg3q.gif" alt="Anomura" width="253" />
 </p>
 
 <h1 align="center">Anomura: The Cove Awaits You</h1>
